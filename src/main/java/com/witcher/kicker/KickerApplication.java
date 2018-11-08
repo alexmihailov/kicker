@@ -1,5 +1,6 @@
 package com.witcher.kicker;
 
+import com.witcher.kicker.email.service.MailService;
 import com.witcher.kicker.kupipotter.service.KupipotterService;
 import com.witcher.kicker.kupipotter.service.KupipotterServiceImpl;
 import com.witcher.kicker.potterland.service.PotterlandService;
@@ -19,10 +20,12 @@ public class KickerApplication {
 
 	@Bean
 	public CommandLineRunner run(KupipotterService kupipotterService,
-								 PotterlandService potterlandService) throws Exception {
+								 PotterlandService potterlandService,
+								 MailService mailService) throws Exception {
 		return args -> {
 //			kupipotterService.sendKupipotterRequest();
-			potterlandService.sendPotterlandRequest();
+//			potterlandService.sendPotterlandRequest();
+			mailService.sendEmail("Test", "hello");
 		};
 	}
 }
