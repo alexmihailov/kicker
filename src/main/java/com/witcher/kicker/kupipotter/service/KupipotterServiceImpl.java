@@ -1,5 +1,6 @@
 package com.witcher.kicker.kupipotter.service;
 
+import com.witcher.kicker.kupipotter.db.repository.KupipotterRepository;
 import com.witcher.kicker.kupipotter.setting.KupipotterSettings;
 import com.witcher.kicker.kupipotter.exception.KupipotterException;
 import org.slf4j.Logger;
@@ -28,6 +29,9 @@ public class KupipotterServiceImpl implements KupipotterService {
     @Qualifier("kupipotter_header")
     private HttpHeaders headers;
 
+    @Autowired
+    private KupipotterRepository repository;
+
     @PostConstruct
     public void setup() {
         headers.setAll(settings.getHeaders());
@@ -35,7 +39,8 @@ public class KupipotterServiceImpl implements KupipotterService {
 
     @Override
     public void sendKupipotterRequest() throws KupipotterException {
-        HttpEntity<String> requestEntity = new HttpEntity<>(settings.getBody(), headers);
+        String body = repository.getOne(1L).getBody();
+        HttpEntity<String> requestEntity = new HttpEntity<>(body, headers);
         logger.debug("[kupipotter]: Request to Kupipotter with entity - " + requestEntity.toString());
         ResponseEntity<String> responseEntity = restTemplate.exchange(settings.getUrl(),
                 HttpMethod.POST, requestEntity, String.class);
@@ -43,21 +48,5 @@ public class KupipotterServiceImpl implements KupipotterService {
         if (responseEntity.getStatusCode() != HttpStatus.OK) {
             throw new KupipotterException(responseEntity.getBody());
         }
-    }
-
-    public KupipotterSettings getSettings() {
-        return settings;
-    }
-
-    public void setSettings(KupipotterSettings settings) {
-        this.settings = settings;
-    }
-
-    public RestTemplate getRestTemplate() {
-        return restTemplate;
-    }
-
-    public void setRestTemplate(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
     }
 }

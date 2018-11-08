@@ -43,28 +43,4 @@ public class PotterlandServiceImpl implements PotterlandService {
             throw new PotterlandException(responseEntity.getBody());
         }
     }
-
-    public PotterlandSetting getSetting() {
-        return setting;
-    }
-
-    public void setSetting(PotterlandSetting setting) {
-        this.setting = setting;
-    }
-
-    public RestTemplate getRestTemplate() {
-        return restTemplate;
-    }
-
-    public void setRestTemplate(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
-
-    public HttpHeaders getHeaders() {
-        return headers;
-    }
-
-    public void setHeaders(HttpHeaders headers) {
-        this.headers = headers;
-    }
 }

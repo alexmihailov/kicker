@@ -23,9 +23,9 @@ public class KickerApplication {
 								 PotterlandService potterlandService,
 								 MailService mailService) throws Exception {
 		return args -> {
-//			kupipotterService.sendKupipotterRequest();
+			kupipotterService.sendKupipotterRequest();
 //			potterlandService.sendPotterlandRequest();
-			mailService.sendEmail("Test", "hello");
+//			mailService.sendEmail("Test", "hello");
 		};
 	}
 }

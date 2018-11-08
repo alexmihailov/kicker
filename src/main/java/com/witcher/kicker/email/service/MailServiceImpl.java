@@ -35,20 +35,4 @@ public class MailServiceImpl implements MailService {
             sender.send(message);
         }
     }
-
-    public JavaMailSender getSender() {
-        return sender;
-    }
-
-    public void setSender(JavaMailSender sender) {
-        this.sender = sender;
-    }
-
-    public MailSetting getMailSetting() {
-        return mailSetting;
-    }
-
-    public void setMailSetting(MailSetting mailSetting) {
-        this.mailSetting = mailSetting;
-    }
 }
