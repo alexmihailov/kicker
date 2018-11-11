@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class PotterlandServiceImpl implements PotterlandService {
 
-    private static final Logger logger = LoggerFactory.getLogger(PotterlandServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PotterlandServiceImpl.class);
 
     @Autowired
     private PotterlandSetting setting;
@@ -33,12 +33,16 @@ public class PotterlandServiceImpl implements PotterlandService {
 
     @Override
     public void sendPotterlandRequest() throws PotterlandException {
+        if (!setting.isEnable()) {
+            LOGGER.info("[potterland]: Service disable.");
+            return;
+        }
         MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
         multiValueMap.setAll(setting.getBodyFormData());
         HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(multiValueMap, headers);
-        logger.debug("[potterland]: Request to Potterland with entity - " + requestEntity.toString());
+        LOGGER.info("[potterland]: Request to Potterland with entity - " + requestEntity.toString());
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(setting.getUrl(), requestEntity , String.class);
-        logger.debug("[potterland]: Response from Potterland with entity - " + responseEntity.toString());
+        LOGGER.info("[potterland]: Response from Potterland with entity - " + responseEntity.toString());
         if (responseEntity.getStatusCode() != HttpStatus.OK) {
             throw new PotterlandException(responseEntity.getBody());
         }

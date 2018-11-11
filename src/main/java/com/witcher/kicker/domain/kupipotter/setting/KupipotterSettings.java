@@ -14,6 +14,9 @@ public class KupipotterSettings {
     @Value("#{${kupipotter.headers}}")
     private Map<String, String> headers;
 
+    @Value("${kupipotter.enable}")
+    private boolean enable;
+
     public String getUrl() {
         return url;
     }
@@ -28,5 +31,13 @@ public class KupipotterSettings {
 
     public void setHeaders(Map<String, String> headers) {
         this.headers = headers;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 }

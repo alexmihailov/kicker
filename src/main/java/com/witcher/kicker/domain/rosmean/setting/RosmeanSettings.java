@@ -11,6 +11,9 @@ public class RosmeanSettings {
     @Value("${rosmean.url}")
     private String url;
 
+    @Value("${rosmean.enable}")
+    private boolean enable;
+
     @Value("#{${rosmean.headers}}")
     private Map<String, String> headers;
 
@@ -28,5 +31,13 @@ public class RosmeanSettings {
 
     public void setHeaders(Map<String, String> headers) {
         this.headers = headers;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 }

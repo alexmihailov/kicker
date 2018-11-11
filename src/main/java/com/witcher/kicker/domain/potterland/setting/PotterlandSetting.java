@@ -14,6 +14,9 @@ public class PotterlandSetting {
     @Value("#{${potterland.body}}")
     private Map<String, String> bodyFormData;
 
+    @Value("${potterland.enable}")
+    private boolean enable;
+
     public String getUrl() {
         return url;
     }
@@ -28,5 +31,13 @@ public class PotterlandSetting {
 
     public void setBodyFormData(Map<String, String> bodyFormData) {
         this.bodyFormData = bodyFormData;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 }

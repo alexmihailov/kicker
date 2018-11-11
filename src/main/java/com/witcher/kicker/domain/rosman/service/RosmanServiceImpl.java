@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class RosmanServiceImpl implements RosmanService {
 
-    private static final Logger logger = LoggerFactory.getLogger(RosmanServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RosmanServiceImpl.class);
 
     @Autowired
     private RosmanSetting settings;
@@ -33,12 +33,16 @@ public class RosmanServiceImpl implements RosmanService {
 
     @Override
     public void sendRosmanRequest() throws RosmanException {
+        if (!settings.isEnable()) {
+            LOGGER.info("[rosman]: Service disable.");
+            return;
+        }
         MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
 //        multiValueMap.setAll(setting.getBodyFormData()); TODO add repository
         HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(multiValueMap, headers);
-        logger.debug("[rosman]: Request to Rosman with entity - " + requestEntity.toString());
+        LOGGER.info("[rosman]: Request to Rosman with entity - " + requestEntity.toString());
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(settings.getUrl(), requestEntity , String.class);
-        logger.debug("[rosman]: Response from Rosman with entity - " + responseEntity.toString());
+        LOGGER.info("[rosman]: Response from Rosman with entity - " + responseEntity.toString());
         if (responseEntity.getStatusCode() != HttpStatus.OK) {
             throw new RosmanException(responseEntity.getBody());
         }

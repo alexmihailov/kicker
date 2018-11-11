@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
 @Service
 public class ZigzagServiceImpl implements ZigzagService {
 
-    private static final Logger logger = LoggerFactory.getLogger(ZigzagServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ZigzagServiceImpl.class);
 
     @Autowired
     private ZigzagSetting settings;
@@ -35,12 +35,16 @@ public class ZigzagServiceImpl implements ZigzagService {
 
     @Override
     public void sendZigzagRequest() throws ZigzagException {
+        if (!settings.isEnable()) {
+            LOGGER.info("[zigzag]: Service disable.");
+            return;
+        }
         String body = "temp"; // TODO add repository
         HttpEntity<String> requestEntity = new HttpEntity<>(body, headers);
-        logger.debug("[zigzag]: Request to Zigzag with entity - " + requestEntity.toString());
+        LOGGER.info("[zigzag]: Request to Zigzag with entity - " + requestEntity.toString());
         ResponseEntity<String> responseEntity = restTemplate.exchange(settings.getUrl(),
                 HttpMethod.POST, requestEntity, String.class);
-        logger.debug("[zigzag]: Response from Zigzag with entity - " + responseEntity.toString());
+        LOGGER.info("[zigzag]: Response from Zigzag with entity - " + responseEntity.toString());
         if (responseEntity.getStatusCode() != HttpStatus.OK) {
             throw new ZigzagException(responseEntity.getBody());
         }

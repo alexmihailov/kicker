@@ -14,6 +14,9 @@ public class ZigzagSetting {
     @Value("#{${zigzag.headers}}")
     private Map<String, String> headers;
 
+    @Value("${zigzag.enable}")
+    private boolean enable;
+
     public String getUrl() {
         return url;
     }
@@ -28,5 +31,13 @@ public class ZigzagSetting {
 
     public void setHeaders(Map<String, String> headers) {
         this.headers = headers;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
 }

@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
 @Service
 public class KupipotterServiceImpl implements KupipotterService {
 
-    private static final Logger logger = LoggerFactory.getLogger(KupipotterServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(KupipotterServiceImpl.class);
 
     @Autowired
     private KupipotterSettings settings;
@@ -35,12 +35,16 @@ public class KupipotterServiceImpl implements KupipotterService {
 
     @Override
     public void sendKupipotterRequest() throws KupipotterException {
+        if (!settings.isEnable()) {
+            LOGGER.info("[kupipotter]: Service disable.");
+            return;
+        }
         String body = ""; // TODO add repository
         HttpEntity<String> requestEntity = new HttpEntity<>(body, headers);
-        logger.debug("[kupipotter]: Request to Kupipotter with entity - " + requestEntity.toString());
+        LOGGER.info("[kupipotter]: Request to Kupipotter with entity - " + requestEntity.toString());
         ResponseEntity<String> responseEntity = restTemplate.exchange(settings.getUrl(),
                 HttpMethod.POST, requestEntity, String.class);
-        logger.debug("[kupipotter]: Response from Kupipotter with entity - " + responseEntity.toString());
+        LOGGER.info("[kupipotter]: Response from Kupipotter with entity - " + responseEntity.toString());
         if (responseEntity.getStatusCode() != HttpStatus.OK) {
             throw new KupipotterException(responseEntity.getBody());
         }

@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
 @Service
 public class RosmeanServiceImpl implements RosmeanService {
 
-    private static final Logger logger = LoggerFactory.getLogger(RosmeanServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RosmeanServiceImpl.class);
 
     @Autowired
     private RosmeanSettings settings;
@@ -36,12 +36,16 @@ public class RosmeanServiceImpl implements RosmeanService {
 
     @Override
     public void sendRosmeanRequest() throws RosmeanException {
+        if (!settings.isEnable()) {
+            LOGGER.info("[rosmean]: Service disable.");
+            return;
+        }
         String body = ""; // TODO add repository
         HttpEntity<String> requestEntity = new HttpEntity<>(body, headers);
-        logger.debug("[rosmean]: Request to Rosmean with entity - " + requestEntity.toString());
+        LOGGER.info("[rosmean]: Request to Rosmean with entity - " + requestEntity.toString());
         ResponseEntity<String> responseEntity = restTemplate.exchange(settings.getUrl(),
                 HttpMethod.POST, requestEntity, String.class);
-        logger.debug("[rosmean]: Response from Rosmean with entity - " + responseEntity.toString());
+        LOGGER.info("[rosmean]: Response from Rosmean with entity - " + responseEntity.toString());
         if (responseEntity.getStatusCode() != HttpStatus.OK) {
             throw new RosmeanException(responseEntity.getBody());
         }
