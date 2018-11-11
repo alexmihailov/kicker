@@ -1,9 +1,9 @@
-package com.witcher.kicker.kupipotter.db.entity;
+package com.witcher.kicker.database.entity;
 
 import javax.persistence.*;
 
 @Entity(name = "kupipotter")
-public class KupipotterBody {
+public class InformationBody {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
