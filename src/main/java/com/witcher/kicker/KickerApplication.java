@@ -4,6 +4,7 @@ import com.witcher.kicker.email.service.MailService;
 import com.witcher.kicker.kupipotter.service.KupipotterService;
 import com.witcher.kicker.kupipotter.service.KupipotterServiceImpl;
 import com.witcher.kicker.potterland.service.PotterlandService;
+import com.witcher.kicker.zigzag.service.ZigzagService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,9 +22,10 @@ public class KickerApplication {
 	@Bean
 	public CommandLineRunner run(KupipotterService kupipotterService,
 								 PotterlandService potterlandService,
-								 MailService mailService) throws Exception {
+								 MailService mailService,
+								 ZigzagService zigzagService) throws Exception {
 		return args -> {
-			kupipotterService.sendKupipotterRequest();
+//			kupipotterService.sendKupipotterRequest();
 //			potterlandService.sendPotterlandRequest();
 //			mailService.sendEmail("Test", "hello");
 		};
