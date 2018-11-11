@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 
 public class MailServiceImpl implements MailService {
 
-    private static final Logger logger = LoggerFactory.getLogger(MailServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MailServiceImpl.class);
 
     @Autowired
     private MailSetting mailSetting;
@@ -21,18 +21,22 @@ public class MailServiceImpl implements MailService {
     private JavaMailSender sender;
 
     @Override
-    public void sendEmail(String subject, String textMessage) throws MessagingException {
-        if (mailSetting.isEnable()){
-            MimeMessage message = sender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(message);
+    public void sendEmail(String subject, String textMessage) {
+        try {
+            if (mailSetting.isEnable()){
+                MimeMessage message = sender.createMimeMessage();
+                MimeMessageHelper helper = new MimeMessageHelper(message);
 
-            helper.setTo(mailSetting.getRecipient());
-            helper.setText(textMessage);
-            helper.setSubject(subject);
+                helper.setTo(mailSetting.getRecipient());
+                helper.setText(textMessage);
+                helper.setSubject(subject);
 
-            logger.debug("Send mail to " + mailSetting.getRecipient());
+                LOGGER.debug("Send mail to " + mailSetting.getRecipient());
 
-            sender.send(message);
+                sender.send(message);
+            }
+        } catch (MessagingException e) {
+            LOGGER.error(e.getMessage());
         }
     }
 }
