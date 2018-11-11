@@ -1,16 +1,16 @@
 package com.witcher.kicker.worker;
 
 import com.witcher.kicker.email.service.MailService;
-import com.witcher.kicker.kupipotter.exception.KupipotterException;
-import com.witcher.kicker.kupipotter.service.KupipotterService;
-import com.witcher.kicker.potterland.exception.PotterlandException;
-import com.witcher.kicker.potterland.service.PotterlandService;
-import com.witcher.kicker.rosman.exception.RosmanException;
-import com.witcher.kicker.rosman.service.RosmanService;
-import com.witcher.kicker.rosmean.exception.RosmeanException;
-import com.witcher.kicker.rosmean.service.RosmeanService;
-import com.witcher.kicker.zigzag.exception.ZigzagException;
-import com.witcher.kicker.zigzag.service.ZigzagService;
+import com.witcher.kicker.domain.kupipotter.exception.KupipotterException;
+import com.witcher.kicker.domain.kupipotter.service.KupipotterService;
+import com.witcher.kicker.domain.potterland.exception.PotterlandException;
+import com.witcher.kicker.domain.potterland.service.PotterlandService;
+import com.witcher.kicker.domain.rosman.exception.RosmanException;
+import com.witcher.kicker.domain.rosman.service.RosmanService;
+import com.witcher.kicker.domain.rosmean.exception.RosmeanException;
+import com.witcher.kicker.domain.rosmean.service.RosmeanService;
+import com.witcher.kicker.domain.zigzag.exception.ZigzagException;
+import com.witcher.kicker.domain.zigzag.service.ZigzagService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
