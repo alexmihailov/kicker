@@ -27,6 +27,13 @@ public class FieldItem {
         this.value = value;
     }
 
+    public FieldItem(String name, String type, boolean required, String id) {
+        this.name = name;
+        this.type = type;
+        this.required = required;
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -45,5 +52,9 @@ public class FieldItem {
 
     public String getValue() {
         return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }
