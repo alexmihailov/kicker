@@ -17,27 +17,43 @@ public class RosmeanSettings {
     @Value("#{${rosmean.headers}}")
     private Map<String, String> headers;
 
+    @Value("${rosmean.page_id}")
+    private long pageId;
+
+    @Value("${rosmean.ab_id}")
+    private long abId;
+
+    @Value("${rosmean.refer}")
+    private String refer;
+
+    @Value("${rosmean.uri}")
+    private String uri;
+
     public String getUrl() {
         return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public Map<String, String> getHeaders() {
-        return headers;
-    }
-
-    public void setHeaders(Map<String, String> headers) {
-        this.headers = headers;
     }
 
     public boolean isEnable() {
         return enable;
     }
 
-    public void setEnable(boolean enable) {
-        this.enable = enable;
+    public Map<String, String> getHeaders() {
+        return headers;
+    }
+
+    public long getPageId() {
+        return pageId;
+    }
+
+    public long getAbId() {
+        return abId;
+    }
+
+    public String getRefer() {
+        return refer;
+    }
+
+    public String getUri() {
+        return uri;
     }
 }
