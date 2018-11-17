@@ -14,6 +14,18 @@ public class KupipotterSettings {
     @Value("#{${kupipotter.headers}}")
     private Map<String, String> headers;
 
+    @Value("${kupipotter.page_id}")
+    private long pageId;
+
+    @Value("${kupipotter.ab_id}")
+    private long abId;
+
+    @Value("${kupipotter.refer}")
+    private String refer;
+
+    @Value("${kupipotter.uri}")
+    private String uri;
+
     @Value("${kupipotter.enable}")
     private boolean enable;
 
@@ -21,23 +33,27 @@ public class KupipotterSettings {
         return url;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public Map<String, String> getHeaders() {
         return headers;
     }
 
-    public void setHeaders(Map<String, String> headers) {
-        this.headers = headers;
+    public long getPageId() {
+        return pageId;
+    }
+
+    public long getAbId() {
+        return abId;
+    }
+
+    public String getRefer() {
+        return refer;
+    }
+
+    public String getUri() {
+        return uri;
     }
 
     public boolean isEnable() {
         return enable;
-    }
-
-    public void setEnable(boolean enable) {
-        this.enable = enable;
     }
 }
