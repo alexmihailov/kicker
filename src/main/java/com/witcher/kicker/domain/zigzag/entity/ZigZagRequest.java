@@ -1,10 +1,10 @@
-package com.witcher.kicker.domain.kupipotter.entity;
+package com.witcher.kicker.domain.zigzag.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public class KupipotterRequest {
+public class ZigZagRequest {
 
     @JsonProperty("hit")
     private Hit hit;
@@ -12,7 +12,7 @@ public class KupipotterRequest {
     @JsonProperty("fields")
     private List<FieldItem> fields;
 
-    public KupipotterRequest(Hit hit, List<FieldItem> fields) {
+    public ZigZagRequest(Hit hit, List<FieldItem> fields) {
         this.hit = hit;
         this.fields = fields;
     }

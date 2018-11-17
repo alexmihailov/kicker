@@ -1,8 +1,8 @@
-package com.witcher.kicker.domain.kupipotter.entity;
+package com.witcher.kicker.domain.zigzag.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class FildItem {
+public class FieldItem {
 
     @JsonProperty("name")
     private String name;
@@ -19,7 +19,7 @@ public class FildItem {
     @JsonProperty("value")
     private String value;
 
-    public FildItem(String name, String type, boolean required, String id, String value) {
+    public FieldItem(String name, String type, boolean required, String id, String value) {
         this.name = name;
         this.type = type;
         this.required = required;
