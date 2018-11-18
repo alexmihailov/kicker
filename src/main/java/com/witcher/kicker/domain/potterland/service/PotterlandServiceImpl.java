@@ -38,7 +38,7 @@ public class PotterlandServiceImpl implements PotterlandService {
             return;
         }
         MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
-        multiValueMap.setAll(setting.getBodyFormData());
+//        multiValueMap.setAll(setting.getBodyFormData());
         HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(multiValueMap, headers);
         LOGGER.info("[potterland]: Request to Potterland with entity - " + requestEntity.toString());
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(setting.getUrl(), requestEntity , String.class);
