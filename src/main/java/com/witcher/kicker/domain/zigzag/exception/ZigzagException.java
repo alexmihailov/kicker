@@ -9,6 +9,10 @@ public class ZigzagException extends Exception {
         super(message);
     }
 
+    public ZigzagException(Throwable cause) {
+        super(cause);
+    }
+
     public ZigzagException(String message, Throwable cause) {
         super(message, cause);
     }

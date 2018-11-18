@@ -6,6 +6,10 @@ public class PotterlandException extends Exception {
         super(message);
     }
 
+    public PotterlandException(Throwable cause) {
+        super(cause);
+    }
+
     public PotterlandException(String message, Throwable cause) {
         super(message, cause);
     }

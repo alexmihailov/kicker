@@ -1,5 +1,6 @@
 package com.witcher.kicker.domain.rosmean.service;
 
+import com.witcher.kicker.database.pager.CircularPagerService;
 import com.witcher.kicker.domain.rosmean.exception.RosmeanException;
 import com.witcher.kicker.domain.rosmean.setting.RosmeanSettings;
 import org.slf4j.Logger;
@@ -28,11 +29,16 @@ public class RosmeanServiceImpl implements RosmeanService {
     @Qualifier("rosmean_header")
     private HttpHeaders headers;
 
+    @Autowired
+    private CircularPagerService pagerService;
+
+    @Autowired
+    private RosmeanRequestBuilderService requestBuilder;
+
     @PostConstruct
     public void setup() {
         headers.setAll(settings.getHeaders());
     }
-
 
     @Override
     public void sendRosmeanRequest() throws RosmeanException {
@@ -40,14 +46,16 @@ public class RosmeanServiceImpl implements RosmeanService {
             LOGGER.info("[rosmean]: Service disable.");
             return;
         }
-        String body = ""; // TODO add repository
-        HttpEntity<String> requestEntity = new HttpEntity<>(body, headers);
-        LOGGER.info("[rosmean]: Request to Rosmean with entity - " + requestEntity.toString());
-        ResponseEntity<String> responseEntity = restTemplate.exchange(settings.getUrl(),
-                HttpMethod.POST, requestEntity, String.class);
-        LOGGER.info("[rosmean]: Response from Rosmean with entity - " + responseEntity.toString());
-        if (responseEntity.getStatusCode() != HttpStatus.OK) {
-            throw new RosmeanException(responseEntity.getBody());
+
+        try {
+            String body = requestBuilder.buildRequest(pagerService.next());
+            HttpEntity<String> requestEntity = new HttpEntity<>(body, headers);
+            LOGGER.info("[rosmean]: Request to Rosmean with entity - " + requestEntity.toString());
+            ResponseEntity<String> responseEntity = restTemplate.exchange(settings.getUrl(),
+                    HttpMethod.POST, requestEntity, String.class);
+            LOGGER.info("[rosmean]: Response from Rosmean with entity - " + responseEntity.toString());
+        } catch (Exception e) {
+            throw new RosmeanException(e);
         }
     }
 }

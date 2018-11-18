@@ -9,6 +9,10 @@ public class RosmeanException extends Exception {
         super(message);
     }
 
+    public RosmeanException(Throwable cause) {
+        super(cause);
+    }
+
     public RosmeanException(String message, Throwable cause) {
         super(message, cause);
     }

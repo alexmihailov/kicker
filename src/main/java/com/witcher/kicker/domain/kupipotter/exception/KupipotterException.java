@@ -6,6 +6,10 @@ public class KupipotterException extends Exception {
         super(message);
     }
 
+    public KupipotterException(Throwable cause) {
+        super(cause);
+    }
+
     public KupipotterException(String message, Throwable cause) {
         super(message, cause);
     }

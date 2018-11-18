@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-public class ZigZagRequestBuilderServiceImpl implements ZigZagRequestBuilderService {
+public class ZigzagRequestBuilderServiceImpl implements ZigzagRequestBuilderService {
 
     private static final int INDEX_NAME = 0;
     private static final int INDEX_PHONE = 1;

@@ -1,5 +1,6 @@
 package com.witcher.kicker.domain.potterland.service;
 
+import com.witcher.kicker.database.pager.CircularPagerService;
 import com.witcher.kicker.domain.potterland.exception.PotterlandException;
 import com.witcher.kicker.domain.potterland.setting.PotterlandSetting;
 import org.slf4j.Logger;
@@ -31,20 +32,28 @@ public class PotterlandServiceImpl implements PotterlandService {
     @Qualifier("potterland_headers")
     private HttpHeaders headers;
 
+    @Autowired
+    private CircularPagerService pagerService;
+
+    @Autowired
+    private PotterlandRequestBuilderService requestBuilder;
+
     @Override
     public void sendPotterlandRequest() throws PotterlandException {
         if (!setting.isEnable()) {
             LOGGER.info("[potterland]: Service disable.");
             return;
         }
-        MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
-//        multiValueMap.setAll(setting.getBodyFormData());
-        HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(multiValueMap, headers);
-        LOGGER.info("[potterland]: Request to Potterland with entity - " + requestEntity.toString());
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity(setting.getUrl(), requestEntity , String.class);
-        LOGGER.info("[potterland]: Response from Potterland with entity - " + responseEntity.toString());
-        if (responseEntity.getStatusCode() != HttpStatus.OK) {
-            throw new PotterlandException(responseEntity.getBody());
+
+        try {
+            MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
+            multiValueMap.setAll(requestBuilder.buildRequestFromData(pagerService.next()));
+            HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(multiValueMap, headers);
+            LOGGER.info("[potterland]: Request to Potterland with entity - " + requestEntity.toString());
+            ResponseEntity<String> responseEntity = restTemplate.postForEntity(setting.getUrl(), requestEntity , String.class);
+            LOGGER.info("[potterland]: Response from Potterland with entity - " + responseEntity.toString());
+        } catch (Exception e) {
+            throw new PotterlandException(e);
         }
     }
 }

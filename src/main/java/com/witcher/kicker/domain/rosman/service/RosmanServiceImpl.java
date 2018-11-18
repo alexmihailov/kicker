@@ -1,5 +1,6 @@
 package com.witcher.kicker.domain.rosman.service;
 
+import com.witcher.kicker.database.pager.CircularPagerService;
 import com.witcher.kicker.domain.rosman.exception.RosmanException;
 import com.witcher.kicker.domain.rosman.setting.RosmanSetting;
 import org.slf4j.Logger;
@@ -31,20 +32,28 @@ public class RosmanServiceImpl implements RosmanService {
     @Qualifier("rosman_headers")
     private HttpHeaders headers;
 
+    @Autowired
+    private CircularPagerService pagerService;
+
+    @Autowired
+    private RosmanRequestBuilderService requestBuilder;
+
     @Override
     public void sendRosmanRequest() throws RosmanException {
         if (!settings.isEnable()) {
             LOGGER.info("[rosman]: Service disable.");
             return;
         }
-        MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
-//        multiValueMap.setAll(setting.getBodyFormData()); TODO add repository
-        HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(multiValueMap, headers);
-        LOGGER.info("[rosman]: Request to Rosman with entity - " + requestEntity.toString());
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity(settings.getUrl(), requestEntity , String.class);
-        LOGGER.info("[rosman]: Response from Rosman with entity - " + responseEntity.toString());
-        if (responseEntity.getStatusCode() != HttpStatus.OK) {
-            throw new RosmanException(responseEntity.getBody());
+
+        try {
+            MultiValueMap<String, String> multiValueMap = new LinkedMultiValueMap<>();
+            multiValueMap.setAll(requestBuilder.buildRequestFormData(pagerService.next()));
+            HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(multiValueMap, headers);
+            LOGGER.info("[rosman]: Request to Rosman with entity - " + requestEntity.toString());
+            ResponseEntity<String> responseEntity = restTemplate.postForEntity(settings.getUrl(), requestEntity , String.class);
+            LOGGER.info("[rosman]: Response from Rosman with entity - " + responseEntity.toString());
+        } catch (Exception e) {
+            throw new RosmanException(e);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.witcher.kicker.domain.kupipotter.service;
 
+import com.witcher.kicker.database.pager.CircularPagerService;
 import com.witcher.kicker.domain.kupipotter.setting.KupipotterSettings;
 import com.witcher.kicker.domain.kupipotter.exception.KupipotterException;
 import org.slf4j.Logger;
@@ -28,6 +29,12 @@ public class KupipotterServiceImpl implements KupipotterService {
     @Qualifier("kupipotter_header")
     private HttpHeaders headers;
 
+    @Autowired
+    private KupipotterRequestBuilderService requestBuilder;
+
+    @Autowired
+    private CircularPagerService pagerService;
+
     @PostConstruct
     public void setup() {
         headers.setAll(settings.getHeaders());
@@ -39,14 +46,16 @@ public class KupipotterServiceImpl implements KupipotterService {
             LOGGER.info("[kupipotter]: Service disable.");
             return;
         }
-        String body = ""; // TODO add repository
-        HttpEntity<String> requestEntity = new HttpEntity<>(body, headers);
-        LOGGER.info("[kupipotter]: Request to Kupipotter with entity - " + requestEntity.toString());
-        ResponseEntity<String> responseEntity = restTemplate.exchange(settings.getUrl(),
-                HttpMethod.POST, requestEntity, String.class);
-        LOGGER.info("[kupipotter]: Response from Kupipotter with entity - " + responseEntity.toString());
-        if (responseEntity.getStatusCode() != HttpStatus.OK) {
-            throw new KupipotterException(responseEntity.getBody());
+
+        try {
+            String body = requestBuilder.buildRequest(pagerService.next());
+            HttpEntity<String> requestEntity = new HttpEntity<>(body, headers);
+            LOGGER.info("[kupipotter]: Request to Kupipotter with entity - " + requestEntity.toString());
+            ResponseEntity<String> responseEntity = restTemplate.exchange(settings.getUrl(),
+                    HttpMethod.POST, requestEntity, String.class);
+            LOGGER.info("[kupipotter]: Response from Kupipotter with entity - " + responseEntity.toString());
+        } catch (Exception ex) {
+            throw new KupipotterException(ex);
         }
     }
 }

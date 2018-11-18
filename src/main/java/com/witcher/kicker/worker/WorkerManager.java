@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestClientException;
 
 import static com.witcher.kicker.worker.TypeKick.*;
 
@@ -93,9 +92,13 @@ public class WorkerManager {
                     break;
             }
         } catch (KupipotterException | ZigzagException | RosmanException
-                | PotterlandException | RosmeanException | RestClientException e) {
+                | PotterlandException | RosmeanException e) {
+
             LOGGER.error(e.getMessage());
-            mailService.sendEmail("Request execution failed", e.getMessage());
+            mailService.sendEmail("Error - " + e.getClass().getName(), e.getMessage());
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage());
+            mailService.sendEmail("Unknown server error", e.getMessage());
         }
     }
 }
