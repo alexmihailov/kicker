@@ -1,7 +1,7 @@
 package com.witcher.kicker;
 
 import com.witcher.kicker.database.pager.CircularPagerService;
-import com.witcher.kicker.domain.kupipotter.service.KupipotterRequestFactory;
+import com.witcher.kicker.domain.kupipotter.service.KupipotterRequestBuilderService;
 import com.witcher.kicker.email.service.MailService;
 import com.witcher.kicker.domain.kupipotter.service.KupipotterService;
 import com.witcher.kicker.domain.potterland.service.PotterlandService;
@@ -31,7 +31,7 @@ public class KickerApplication {
 								 RosmeanService rosmeanService,
 								 RosmanService rosmanService,
 								 CircularPagerService pagerService,
-								 KupipotterRequestFactory requestFactory) throws Exception {
+								 KupipotterRequestBuilderService requestFactory) throws Exception {
 		return args -> {
 //			kupipotterService.sendKupipotterRequest();
 //			potterlandService.sendPotterlandRequest();

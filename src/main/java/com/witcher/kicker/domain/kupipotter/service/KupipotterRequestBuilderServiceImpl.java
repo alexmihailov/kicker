@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class KupipotterRequestFactoryImpl implements KupipotterRequestFactory {
+public class KupipotterRequestBuilderServiceImpl implements KupipotterRequestBuilderService {
 
     private static final int INDEX_NAME = 0;
     private static final int INDEX_PHONE = 1;
