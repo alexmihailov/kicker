@@ -9,8 +9,14 @@ public class MailSetting {
     @Value("${mail.recipient}")
     private String recipient;
 
+    @Value("${mail.recipient.startup}")
+    private String recipientStartUp;
+
     @Value("${mail.enable}")
     private boolean enable;
+
+    @Value("${mail.enable.startup}")
+    private boolean enableSendOnStartUp;
 
     public String getRecipient() {
         return recipient;
@@ -26,5 +32,21 @@ public class MailSetting {
 
     public void setEnable(boolean enable) {
         this.enable = enable;
+    }
+
+    public String getRecipientStartUp() {
+        return recipientStartUp;
+    }
+
+    public void setRecipientStartUp(String recipientStartUp) {
+        this.recipientStartUp = recipientStartUp;
+    }
+
+    public boolean isEnableSendOnStartUp() {
+        return enableSendOnStartUp;
+    }
+
+    public void setEnableSendOnStartUp(boolean enableSendOnStartUp) {
+        this.enableSendOnStartUp = enableSendOnStartUp;
     }
 }

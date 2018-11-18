@@ -39,4 +39,11 @@ public class MailServiceImpl implements MailService {
             LOGGER.error(e.getMessage());
         }
     }
+
+    @Override
+    public void sendEmailStartApp() {
+        if (mailSetting.isEnableSendOnStartUp()) {
+            sendEmail("Kicker", "Application getting started!");
+        }
+    }
 }
