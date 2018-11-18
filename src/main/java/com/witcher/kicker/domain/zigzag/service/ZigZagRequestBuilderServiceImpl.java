@@ -8,12 +8,14 @@ import com.witcher.kicker.domain.zigzag.entity.Hit;
 import com.witcher.kicker.domain.zigzag.entity.ZigZagRequest;
 import com.witcher.kicker.domain.zigzag.setting.ZigzagSetting;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
+@Service
 public class ZigZagRequestBuilderServiceImpl implements ZigZagRequestBuilderService {
 
     private static final int INDEX_NAME = 0;
