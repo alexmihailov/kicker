@@ -1,0 +1,152 @@
+2018-11-18 17:41:06.445  INFO 6482 --- [main] com.witcher.kicker.KickerApplication     : Starting KickerApplication on alex-pc with PID 6482 (/home/alex/Documents/works/kicker/deploy/app/kicker-0.0.1-SNAPSHOT.jar started by root in /)
+2018-11-18 17:41:06.452 DEBUG 6482 --- [main] com.witcher.kicker.KickerApplication     : Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2018-11-18 17:41:06.453  INFO 6482 --- [main] com.witcher.kicker.KickerApplication     : No active profile set, falling back to default profiles: default
+2018-11-18 17:41:07.297  INFO 6482 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-18 17:41:07.418  INFO 6482 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 113ms. Found 1 repository interfaces.
+2018-11-18 17:41:08.494  INFO 6482 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-18 17:41:08.787  INFO 6482 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-18 17:41:08.935  INFO 6482 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-18 17:41:09.082  INFO 6482 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2018-11-18 17:41:09.085  INFO 6482 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-11-18 17:41:09.324  INFO 6482 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2018-11-18 17:41:09.708  INFO 6482 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-11-18 17:41:10.618  INFO 6482 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-18 17:41:12.118  INFO 6482 --- [main] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2018-11-18 17:41:12.216  INFO 6482 --- [main] com.witcher.kicker.KickerApplication     : Started KickerApplication in 6.356 seconds (JVM running for 7.147)
+2018-11-18 17:41:12.256 DEBUG 6482 --- [main] c.w.k.email.service.MailServiceImpl      : Send mail to witcher-rock@mail.ru
+2018-11-18 17:41:20.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:41:20.003  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:41:20.005  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:41:20.005  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:41:20.006  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:41:20.006  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:41:20.007  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:41:20.007  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:41:20.009  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:41:20.010  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:41:30.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:41:30.001  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:41:30.002  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:41:30.003  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:41:30.003  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:41:30.004  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:41:30.005  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:41:30.005  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:41:30.005  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:41:30.006  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:41:40.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:41:40.000  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:41:40.001  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:41:40.001  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:41:40.002  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:41:40.002  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:41:40.002  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:41:40.003  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:41:40.003  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:41:40.003  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:41:50.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:41:50.001  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:41:50.002  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:41:50.003  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:41:50.004  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:41:50.005  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:41:50.006  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:41:50.006  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:41:50.007  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:41:50.008  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:42:00.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:42:00.001  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:42:00.002  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:42:00.002  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:42:00.004  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:42:00.004  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:42:00.005  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:42:00.005  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:42:00.006  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:42:00.006  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:42:10.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:42:10.001  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:42:10.002  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:42:10.002  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:42:10.003  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:42:10.003  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:42:10.004  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:42:10.004  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:42:10.005  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:42:10.005  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:42:20.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:42:20.001  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:42:20.002  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:42:20.002  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:42:20.003  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:42:20.004  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:42:20.004  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:42:20.004  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:42:20.005  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:42:20.005  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:42:30.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:42:30.001  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:42:30.002  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:42:30.002  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:42:30.003  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:42:30.003  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:42:30.004  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:42:30.004  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:42:30.005  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:42:30.005  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:42:40.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:42:40.001  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:42:40.002  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:42:40.002  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:42:40.003  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:42:40.003  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:42:40.004  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:42:40.004  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:42:40.005  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:42:40.005  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:42:50.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:42:50.001  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:42:50.003  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:42:50.003  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:42:50.003  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:42:50.003  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:42:50.003  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:42:50.003  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:42:50.004  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:42:50.004  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:43:00.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:43:00.001  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:43:00.002  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:43:00.003  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:43:00.006  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:43:00.006  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:43:00.007  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:43:00.007  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:43:00.007  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:43:00.008  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:43:10.000  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:43:10.001  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:43:10.002  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:43:10.003  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:43:10.004  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:43:10.004  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:43:10.005  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:43:10.005  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:43:10.005  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:43:10.006  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:43:20.001  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Potterland.
+2018-11-18 17:43:20.002  INFO 6482 --- [scheduling-1] c.w.k.d.p.service.PotterlandServiceImpl  : [potterland]: Service disable.
+2018-11-18 17:43:20.003  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosman.
+2018-11-18 17:43:20.004  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmanServiceImpl      : [rosman]: Service disable.
+2018-11-18 17:43:20.005  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Rosmean.
+2018-11-18 17:43:20.005  INFO 6482 --- [scheduling-1] c.w.k.d.r.service.RosmeanServiceImpl     : [rosmean]: Service disable.
+2018-11-18 17:43:20.006  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Zigzag.
+2018-11-18 17:43:20.006  INFO 6482 --- [scheduling-1] c.w.k.d.z.service.ZigzagServiceImpl      : [zigzag]: Service disable.
+2018-11-18 17:43:20.007  INFO 6482 --- [scheduling-1] com.witcher.kicker.worker.WorkerManager  : [worker] Start operation for Kupipotter.
+2018-11-18 17:43:20.007  INFO 6482 --- [scheduling-1] c.w.k.d.k.service.KupipotterServiceImpl  : [kupipotter]: Service disable.
+2018-11-18 17:43:20.608  INFO 6482 --- [Thread-2] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2018-11-18 17:43:20.614  INFO 6482 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-18 17:43:20.618  INFO 6482 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-11-18 17:43:20.622  INFO 6482 --- [Thread-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
