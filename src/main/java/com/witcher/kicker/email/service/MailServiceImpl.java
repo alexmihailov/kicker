@@ -22,28 +22,32 @@ public class MailServiceImpl implements MailService {
 
     @Override
     public void sendEmail(String subject, String textMessage) {
-        try {
-            if (mailSetting.isEnable()){
-                MimeMessage message = sender.createMimeMessage();
-                MimeMessageHelper helper = new MimeMessageHelper(message);
-
-                helper.setTo(mailSetting.getRecipient());
-                helper.setText(textMessage);
-                helper.setSubject(subject);
-
-                LOGGER.debug("Send mail to " + mailSetting.getRecipient());
-
-                sender.send(message);
-            }
-        } catch (MessagingException e) {
-            LOGGER.error(e.getMessage());
-        }
+        sendEmail(mailSetting.getRecipient(), subject, textMessage);
     }
 
     @Override
     public void sendEmailStartApp() {
         if (mailSetting.isEnableSendOnStartUp()) {
-            sendEmail("Kicker", "Application getting started!");
+            sendEmail(mailSetting.getRecipientStartUp(), "Kicker", "Application getting started!");
+        }
+    }
+
+    private void sendEmail(String recipient, String subject, String textMessage) {
+        try {
+            if (mailSetting.isEnable()){
+                MimeMessage message = sender.createMimeMessage();
+                MimeMessageHelper helper = new MimeMessageHelper(message);
+
+                helper.setTo(recipient);
+                helper.setText(textMessage);
+                helper.setSubject(subject);
+
+                LOGGER.debug("Send mail to " + recipient);
+
+                sender.send(message);
+            }
+        } catch (MessagingException e) {
+            LOGGER.error(e.getMessage());
         }
     }
 }
