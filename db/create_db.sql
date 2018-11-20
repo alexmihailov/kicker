@@ -27,11 +27,6 @@ DEFAULT CHARACTER SET = utf8;
 
 SHOW WARNINGS;
 
-DROP USER 'c#kicker'@'localhost';
-
-CREATE USER 'c#kicker'@'localhost' IDENTIFIED BY 'kicker_app';
-GRANT ALL PRIVILEGES ON `kicker`.`user_info` TO 'c#kicker'@'localhost';
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
